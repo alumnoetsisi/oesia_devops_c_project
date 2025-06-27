@@ -60,7 +60,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
                         sh '''${SCANNER_HOME}/bin/sonar-scanner \
                             -Dsonar.token=${SONAR_TOKEN} \
-                            -Dsonar.projectKey=alumno_project \
+                            -Dsonar.projectKey=angel_c_test_2 \
                             -Dsonar.sources=./src \
                             -Dsonar.language=c \
                             -Dsonar.cxx.file.suffixes=.h,.c \
@@ -74,6 +74,7 @@ pipeline {
         stage('Quality Gate') {
             steps {
                 script {
+                    sleep time: 10, unit: 'SECONDS'
                     timeout(time: 3, unit: 'MINUTES') {
                         def qg = waitForQualityGate()
                         if (qg.status != 'OK') {
