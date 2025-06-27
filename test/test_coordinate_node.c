@@ -20,7 +20,7 @@ void test_coordinateNode_init(void) {
     tCoordinate coord = {1.234, 5.678};
     node->coordinate = coord;
     
-    TEST_ASSERT_EQUAL_FLOAT(0.0, node->coordinate.latitude);
+    TEST_ASSERT_EQUAL_FLOAT(1.234, node->coordinate.latitude);
     TEST_ASSERT_EQUAL_FLOAT(5.678, node->coordinate.longitude);
     TEST_ASSERT_EQUAL_INT(0, node->numPersons);
     TEST_ASSERT_NULL(node->persons);
